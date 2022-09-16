@@ -1,0 +1,43 @@
+Creacion de Dojos
+new_dojo = Dojo.objects.create(name = 'Shobukan', city = 'Santiago', state = 'RM')
+new_dojo = Dojo.objects.create(name = 'Kiokushin', city = 'La Serena', state = 'CO')
+new_dojo = Dojo.objects.create(name = 'Goyukai', city = 'Puerto Montt', state = 'PM')
+
+Borrar los Dojos
+delete = Dojo.objects.all()
+delete.delete()
+
+Crear de nuevo los dojos
+new_dojo = Dojo.objects.create(name = 'Shobukan', city = 'Santiago', state = 'RM')
+new_dojo = Dojo.objects.create(name = 'Kiokushin', city = 'La Serena', state = 'CO')
+new_dojo = Dojo.objects.create(name = 'Goyukai', city = 'Puerto Montt', state = 'PM')
+
+Crear 3 ninjas para el primer dojo
+new_ninja = Ninja.objects.create(dojo_id = new_dojo, first_name = 'Rodrigo', last_name = 'Feliu')
+new_ninja = Ninja.objects.create(dojo_id = new_dojo, first_name = 'Jorge', last_name = 'Del Salto')
+new_ninja = Ninja.objects.create(dojo_id = new_dojo, first_name = 'Constanza', last_name = 'Herrera')
+
+Crear 3 ninjas en el segundo dojo
+dojo_new = Dojo.objects.get(name = 'Kiokushin')
+new_ninja = Ninja.objects.create(dojo_id = dojo_new, first_name = 'Benjamin', last_name = 'Herrera')
+new_ninja = Ninja.objects.create(dojo_id = dojo_new, first_name = 'Carlitox', last_name = 'Rosas')
+new_ninja = Ninja.objects.create(dojo_id = dojo_new, first_name = 'Loreto', last_name = 'Campos')
+
+Crear 3 ninjas en el tercer dojo
+dojo_last = Dojo.objects.get(name = 'Goyukai')
+new_ninja = Ninja.objects.create(dojo_id = dojo_last, first_name = 'Ignacio', last_name = 'Franzani')
+new_ninja = Ninja.objects.create(dojo_id = dojo_last, first_name = 'Mauricio', last_name = 'Gomez')
+new_ninja = Ninja.objects.create(dojo_id = dojo_last, first_name = 'Francisco', last_name = 'Jopia')
+
+Recupera a los 3 ninjas del primer dojo
+dojo1=Dojo.objects.get(name='Shobukan')
+dojo1.ninjas.all()
+
+Recupera a los 3 ninjas del ultimo dojo
+dojo_last=Dojo.objects.last()
+dojo_last.ninjas.all()
+Ninja.objects.filter(dojo_id = dojo_last)
+
+Recupera el ultimo dojo del ninja
+last_ninja = Ninja.objects.last()
+last_ninja.dojo_id
